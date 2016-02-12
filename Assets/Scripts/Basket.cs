@@ -9,7 +9,7 @@ public class Basket : MonoBehaviour {
 		//Find a reference to the ScoreCounter GameObject
 		GameObject scoreGO = GameObject.Find("ScoreCounter");
 		//Get the Text Component of that GameObject
-		scoreGT.text = scoreGO.GetComponent<Text>();
+		scoreGT = scoreGO.GetComponent<Text>();
 		//Set the starting number of points to 0
 		scoreGT.text = "0";
 	}
@@ -40,6 +40,10 @@ public class Basket : MonoBehaviour {
 		//Add points for catching the apple
 		score += 100;
 		//Convert the score back to a string and display it
-		score.GetType.text = score.ToString ();
+		scoreGT.text = score.ToString ();
+		// Track the high score
+		if (score > HighScore.score) {
+			HighScore.score = score;
+		}
 	}
 }
